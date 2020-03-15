@@ -1,7 +1,7 @@
 package ru.iopent.parking.endpoint;
 
-import ru.iopent.parking.dto.CreateParkingRequest;
-import ru.iopent.parking.dto.ParkingDto;
+import ru.iopent.parking.dto.parking.CreateParkingRequest;
+import ru.iopent.parking.dto.parking.ParkingDto;
 
 import java.util.List;
 

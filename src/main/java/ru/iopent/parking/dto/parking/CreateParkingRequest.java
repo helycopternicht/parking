@@ -1,4 +1,4 @@
-package ru.iopent.parking.dto;
+package ru.iopent.parking.dto.parking;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;

@@ -1,8 +1,8 @@
 package ru.iopent.parking.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.iopent.parking.dto.CreateParkingRequest;
-import ru.iopent.parking.dto.ParkingDto;
+import ru.iopent.parking.dto.parking.CreateParkingRequest;
+import ru.iopent.parking.dto.parking.ParkingDto;
 import ru.iopent.parking.endpoint.ParkingEndpointService;
 
 import javax.validation.Valid;

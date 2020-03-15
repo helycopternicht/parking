@@ -1,4 +1,4 @@
-package ru.iopent.parking.dto;
+package ru.iopent.parking.dto.parking;
 
 public class ParkingDto {
     private Integer id;

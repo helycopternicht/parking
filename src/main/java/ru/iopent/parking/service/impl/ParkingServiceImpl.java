@@ -2,7 +2,7 @@ package ru.iopent.parking.service.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.iopent.parking.dto.CreateParkingRequest;
+import ru.iopent.parking.dto.parking.CreateParkingRequest;
 import ru.iopent.parking.entity.Parking;
 import ru.iopent.parking.repository.ParkingRepository;
 import ru.iopent.parking.service.ParkingService;
@@ -38,5 +38,10 @@ public class ParkingServiceImpl implements ParkingService {
     @Transactional(readOnly = true)
     public List<Parking> findAll() {
         return parkingRepository.findAll();
+    }
+
+    @Override
+    public Boolean existById(Integer parkingId) {
+        return parkingRepository.existsById(parkingId);
     }
 }
