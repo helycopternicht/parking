@@ -7,7 +7,6 @@ import ru.iopent.parking.entity.Parking;
 import ru.iopent.parking.repository.ParkingRepository;
 import ru.iopent.parking.service.ParkingService;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,18 +29,7 @@ public class ParkingServiceImpl implements ParkingService {
         Parking parking = new Parking();
         parking.setDescription(createParkingRequest.getDescription());
         parking.setCapacity(createParkingRequest.getCapacity());
-        parking.setCurrentFullness(0);
         return parkingRepository.save(parking);
     }
 
-    @Override
-    @Transactional(readOnly = true)
-    public List<Parking> findAll() {
-        return parkingRepository.findAll();
-    }
-
-    @Override
-    public Boolean existById(Integer parkingId) {
-        return parkingRepository.existsById(parkingId);
-    }
 }

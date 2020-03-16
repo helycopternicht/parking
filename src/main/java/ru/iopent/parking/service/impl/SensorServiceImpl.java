@@ -1,8 +1,8 @@
 package ru.iopent.parking.service.impl;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
+import ru.iopent.parking.entity.Parking;
 import ru.iopent.parking.entity.Sensor;
 import ru.iopent.parking.repository.SensorRepository;
 import ru.iopent.parking.service.SensorService;
@@ -20,13 +20,6 @@ public class SensorServiceImpl implements SensorService {
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public List<Sensor> findAllByParkingId(Integer parkingId) {
-        return sensorRepository.findByParkingId(parkingId);
-    }
-
-    @Override
-    @Transactional
     public List<Sensor> createSensors(Integer count, Integer parkingId) {
         List<Sensor> list = new ArrayList<>(count);
         for (int number = 1; number <= count; number++) {
@@ -41,13 +34,18 @@ public class SensorServiceImpl implements SensorService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Sensor> findByParkingIdAndNumber(Integer parkingId, Integer number) {
-        return sensorRepository.findByParkingIdAndNumber(parkingId, number);
+    public Optional<Sensor> findByParkingAndNumber(Parking parking, Integer number) {
+        return sensorRepository.findByParkingIdAndNumber(parking.getId(), number);
     }
 
     @Override
-    @Transactional(isolation = Isolation.SERIALIZABLE)
+    @Transactional
     public Sensor save(Sensor sensor) {
         return sensorRepository.save(sensor);
+    }
+
+    @Override
+    public Integer getFreeSensorCount(Parking parking) {
+        return sensorRepository.countAllByParkingIdAndBusy(parking.getId(), false);
     }
 }

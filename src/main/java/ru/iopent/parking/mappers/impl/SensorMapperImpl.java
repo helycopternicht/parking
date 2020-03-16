@@ -9,9 +9,6 @@ import ru.iopent.parking.mappers.SensorMapper;
 public class SensorMapperImpl implements SensorMapper {
     @Override
     public SensorDto convertToSensorDto(Sensor sensor) {
-        SensorDto dto = new SensorDto();
-        dto.setNumber(sensor.getNumber());
-        dto.setBusy(sensor.getBusy());
-        return dto;
+        return new SensorDto(sensor.getNumber(), sensor.getBusy());
     }
 }

@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface SensorRepository extends JpaRepository<Sensor, Integer> {
     List<Sensor> findByParkingId(Integer parkingId);
     Optional<Sensor> findByParkingIdAndNumber(Integer parkingId, Integer number);
+    Integer countAllByParkingIdAndBusy(Integer parkingId, Boolean isBusy);
 }

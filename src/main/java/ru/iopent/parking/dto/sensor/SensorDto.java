@@ -1,22 +1,19 @@
 package ru.iopent.parking.dto.sensor;
 
 public class SensorDto {
-    private Integer number;
-    private Boolean isBusy;
+    private final Integer number;
+    private final Boolean isBusy;
+
+    public SensorDto(Integer number, Boolean isBusy) {
+        this.number = number;
+        this.isBusy = isBusy;
+    }
 
     public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
     public Boolean getBusy() {
         return isBusy;
-    }
-
-    public void setBusy(Boolean busy) {
-        isBusy = busy;
     }
 }

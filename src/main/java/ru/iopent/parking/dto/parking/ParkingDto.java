@@ -1,40 +1,26 @@
 package ru.iopent.parking.dto.parking;
 
 public class ParkingDto {
-    private Integer id;
-    private String description;
-    private Integer capacity;
-    private Integer currentFullness;
+    private final Integer id;
+    private final String description;
+    private final Integer capacity;
+
+    public ParkingDto(Integer id, String description, Integer capacity) {
+        this.id = id;
+        this.description = description;
+        this.capacity = capacity;
+    }
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
-    }
-
-    public Integer getCurrentFullness() {
-        return currentFullness;
-    }
-
-    public void setCurrentFullness(Integer currentFullness) {
-        this.currentFullness = currentFullness;
-    }
 }

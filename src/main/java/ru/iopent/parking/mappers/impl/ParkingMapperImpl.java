@@ -9,11 +9,6 @@ import ru.iopent.parking.mappers.ParkingMapper;
 public class ParkingMapperImpl implements ParkingMapper {
     @Override
     public ParkingDto convertToParkingDto(Parking parking) {
-        ParkingDto dto = new ParkingDto();
-        dto.setId(parking.getId());
-        dto.setDescription(parking.getDescription());
-        dto.setCapacity(parking.getCapacity());
-        dto.setCurrentFullness(parking.getCurrentFullness());
-        return dto;
+        return new ParkingDto(parking.getId(), parking.getDescription(), parking.getCapacity());
     }
 }

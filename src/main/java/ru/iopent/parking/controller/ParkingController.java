@@ -2,11 +2,12 @@ package ru.iopent.parking.controller;
 
 import org.springframework.web.bind.annotation.*;
 import ru.iopent.parking.dto.parking.CreateParkingRequest;
+import ru.iopent.parking.dto.parking.FreeSlotsCountDto;
+import ru.iopent.parking.dto.parking.FreeSlotsDto;
 import ru.iopent.parking.dto.parking.ParkingDto;
 import ru.iopent.parking.endpoint.ParkingEndpointService;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/parkings")
@@ -17,18 +18,18 @@ class ParkingController {
 		this.endpointService = endpointService;
 	}
 
-    @GetMapping("/{id}")
-    public ParkingDto findById(@PathVariable Integer id) {
-        return endpointService.findById(id);
-    }
-
     @PostMapping
-	public ParkingDto create(@RequestBody @Valid CreateParkingRequest createParkingRequest) {
+	public ParkingDto createParking(@RequestBody @Valid CreateParkingRequest createParkingRequest) {
         return endpointService.createParking(createParkingRequest);
 	}
 
-	@GetMapping
-    public List<ParkingDto> finAll() {
-        return endpointService.findAll();
+	@GetMapping("/{id}/has-available-slots")
+    public FreeSlotsDto hasAvailableSlots(@PathVariable Integer id) {
+        return endpointService.hasAvailableSlots(id);
+    }
+
+    @GetMapping("/{id}/available-slots-count")
+    public FreeSlotsCountDto getAvailableSlotsCount(@PathVariable Integer id) {
+        return endpointService.getAvailableSlotsCount(id);
     }
 }

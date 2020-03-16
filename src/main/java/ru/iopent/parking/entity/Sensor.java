@@ -12,7 +12,7 @@ public class Sensor extends BaseEntity {
     private Integer number;
 
     @Column(name = "is_busy", nullable = false)
-    private Boolean isBusy;
+    private Boolean busy;
 
     public Integer getParkingId() {
         return parkingId;
@@ -31,11 +31,11 @@ public class Sensor extends BaseEntity {
     }
 
     public Boolean getBusy() {
-        return isBusy;
+        return busy;
     }
 
     public void setBusy(Boolean busy) {
-        isBusy = busy;
+        this.busy = busy;
     }
 
     public Integer getId() {

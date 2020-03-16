@@ -13,9 +13,6 @@ public class Parking extends BaseEntity {
     @Column(name = "capacity", nullable = false)
     private Integer capacity;
 
-    @Column(name = "current_fullness", nullable = false)
-    private Integer currentFullness;
-
     public Integer getId() {
         return id;
     }
@@ -34,13 +31,5 @@ public class Parking extends BaseEntity {
 
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
-    }
-
-    public Integer getCurrentFullness() {
-        return currentFullness;
-    }
-
-    public void setCurrentFullness(Integer currentFullness) {
-        this.currentFullness = currentFullness;
     }
 }

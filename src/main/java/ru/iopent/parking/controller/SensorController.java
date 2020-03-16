@@ -1,10 +1,11 @@
 package ru.iopent.parking.controller;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import ru.iopent.parking.dto.sensor.SensorDto;
 import ru.iopent.parking.endpoint.SensorEndpointService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/parkings/{parkingId}/sensors")
@@ -13,16 +14,6 @@ public class SensorController {
 
     public SensorController(SensorEndpointService sensorEndpointService) {
         this.sensorEndpointService = sensorEndpointService;
-    }
-
-    @GetMapping
-    public List<SensorDto> findAll(@PathVariable Integer parkingId) {
-        return sensorEndpointService.findAll(parkingId);
-    }
-
-    @GetMapping("/{number}")
-    public SensorDto findByNumber(@PathVariable Integer parkingId, @PathVariable Integer number) {
-        return sensorEndpointService.findByParkingIdAndNumber(parkingId, number);
     }
 
     @PostMapping("/{number}/busy")

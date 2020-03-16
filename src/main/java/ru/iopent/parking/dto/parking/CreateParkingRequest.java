@@ -5,24 +5,21 @@ import javax.validation.constraints.Size;
 
 public class CreateParkingRequest {
     @Size(min = 1, max = 255)
-    private String description;
+    private final String description;
 
     @Min(1)
-    private Integer capacity;
+    private final Integer capacity;
 
-    public String getDescription() {
-        return description;
+    public CreateParkingRequest(@Size(min = 1, max = 255) String description, @Min(1) Integer capacity) {
+        this.description = description;
+        this.capacity = capacity;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getDescription() {
+        return this.description;
     }
 
     public Integer getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
+        return this.capacity;
     }
 }
