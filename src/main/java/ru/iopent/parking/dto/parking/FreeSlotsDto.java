@@ -1,13 +1,13 @@
 package ru.iopent.parking.dto.parking;
 
 public class FreeSlotsDto {
-    private Boolean isFreeSlotsAvailable;
+    private Boolean freeSlotsAvailable;
 
     public FreeSlotsDto(Boolean isFreeSlotsAvailable) {
-        this.isFreeSlotsAvailable = isFreeSlotsAvailable;
+        this.freeSlotsAvailable = isFreeSlotsAvailable;
     }
 
     public Boolean getFreeSlotsAvailable() {
-        return isFreeSlotsAvailable;
+        return freeSlotsAvailable;
     }
 }

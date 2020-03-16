@@ -1,1 +1,2 @@
 CREATE DATABASE parking;
+CREATE DATABASE parking_test;
