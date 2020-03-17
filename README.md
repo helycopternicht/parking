@@ -46,7 +46,7 @@ curl -d '{"description":"Parking1", "capacity": 10}' -H "Content-Type: applicati
 
 Is here available places
 ```
-curl -i -H "Accept: application/st:8080/api/parkings/1/has-available-slots
+curl -i -H "Accept: application/json" -X GET http://localhost:8080/api/parkings/1/has-available-slots
 ```
 
 Available places count
