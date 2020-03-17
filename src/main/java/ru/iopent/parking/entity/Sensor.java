@@ -1,7 +1,12 @@
 package ru.iopent.parking.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "sensors")
 public class Sensor extends BaseEntity {
@@ -13,36 +18,4 @@ public class Sensor extends BaseEntity {
 
     @Column(name = "is_busy", nullable = false)
     private Boolean busy;
-
-    public Integer getParkingId() {
-        return parkingId;
-    }
-
-    public void setParkingId(Integer parkingId) {
-        this.parkingId = parkingId;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-    public Boolean getBusy() {
-        return busy;
-    }
-
-    public void setBusy(Boolean busy) {
-        this.busy = busy;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }

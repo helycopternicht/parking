@@ -23,12 +23,12 @@ class ParkingController {
         return endpointService.createParking(createParkingRequest);
 	}
 
-	@GetMapping("/{id}/has-available-slots")
+	@GetMapping("/{id:[\\d]+}/has-available-slots")
     public FreeSlotsDto hasAvailableSlots(@PathVariable Integer id) {
         return endpointService.hasAvailableSlots(id);
     }
 
-    @GetMapping("/{id}/available-slots-count")
+    @GetMapping("/{id:[\\d]+}/available-slots-count")
     public FreeSlotsCountDto getAvailableSlotsCount(@PathVariable Integer id) {
         return endpointService.getAvailableSlotsCount(id);
     }

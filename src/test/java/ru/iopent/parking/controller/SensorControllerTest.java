@@ -49,7 +49,7 @@ class SensorControllerTest extends ApiTestBase {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.number").value(sensor.getNumber()))
-                .andExpect(jsonPath("$.busy").value(true));
+                .andExpect(jsonPath("$.isBusy").value(true));
     }
 
     @Test
@@ -78,7 +78,7 @@ class SensorControllerTest extends ApiTestBase {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.number").value(sensor.getNumber()))
-                .andExpect(jsonPath("$.busy").value(false));
+                .andExpect(jsonPath("$.isBusy").value(false));
     }
 
 }

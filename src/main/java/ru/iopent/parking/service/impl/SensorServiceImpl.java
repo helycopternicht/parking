@@ -1,5 +1,6 @@
 package ru.iopent.parking.service.impl;
 
+import lombok.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.iopent.parking.entity.Parking;
@@ -20,7 +21,7 @@ public class SensorServiceImpl implements SensorService {
     }
 
     @Override
-    public List<Sensor> createSensors(Integer count, Integer parkingId) {
+    public List<Sensor> createSensors(@NonNull Integer count, @NonNull Integer parkingId) {
         List<Sensor> list = new ArrayList<>(count);
         for (int number = 1; number <= count; number++) {
             Sensor sensor = new Sensor();
@@ -34,18 +35,18 @@ public class SensorServiceImpl implements SensorService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Sensor> findByParkingAndNumber(Parking parking, Integer number) {
+    public Optional<Sensor> findByParkingAndNumber(@NonNull Parking parking, @NonNull Integer number) {
         return sensorRepository.findByParkingIdAndNumber(parking.getId(), number);
     }
 
     @Override
     @Transactional
-    public Sensor save(Sensor sensor) {
+    public Sensor save(@NonNull Sensor sensor) {
         return sensorRepository.save(sensor);
     }
 
     @Override
-    public Integer getFreeSensorCount(Parking parking) {
+    public Integer getFreeSensorCount(@NonNull Parking parking) {
         return sensorRepository.countAllByParkingIdAndBusy(parking.getId(), false);
     }
 }

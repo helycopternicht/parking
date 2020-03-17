@@ -1,5 +1,6 @@
 package ru.iopent.parking.service.impl;
 
+import lombok.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.iopent.parking.dto.parking.CreateParkingRequest;
@@ -19,13 +20,13 @@ public class ParkingServiceImpl implements ParkingService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Parking> findById(Integer id) {
+    public Optional<Parking> findById(@NonNull Integer id) {
         return parkingRepository.findById(id);
     }
 
     @Override
     @Transactional
-    public Parking createParking(CreateParkingRequest createParkingRequest) {
+    public Parking createParking(@NonNull CreateParkingRequest createParkingRequest) {
         Parking parking = new Parking();
         parking.setDescription(createParkingRequest.getDescription());
         parking.setCapacity(createParkingRequest.getCapacity());

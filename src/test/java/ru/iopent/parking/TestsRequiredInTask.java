@@ -53,7 +53,6 @@ class TestsRequiredInTask {
 
         mvc.perform(get(String.format("/api/parkings/%d/has-available-slots", parking.getId()))
             .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.freeSlotsAvailable").value(true));
     }

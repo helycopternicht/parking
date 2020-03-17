@@ -8,7 +8,7 @@ import ru.iopent.parking.dto.sensor.SensorDto;
 import ru.iopent.parking.endpoint.SensorEndpointService;
 
 @RestController
-@RequestMapping("/api/parkings/{parkingId}/sensors")
+@RequestMapping("/api/parkings/{parkingId:[\\d]+}/sensors")
 public class SensorController {
     private final SensorEndpointService sensorEndpointService;
 
@@ -16,12 +16,12 @@ public class SensorController {
         this.sensorEndpointService = sensorEndpointService;
     }
 
-    @PostMapping("/{number}/busy")
+    @PostMapping("/{number:[\\d]+}/busy")
     public SensorDto setSensorBusy(@PathVariable Integer parkingId, @PathVariable Integer number) {
         return sensorEndpointService.setSensorBusy(parkingId, number);
     }
 
-    @PostMapping("/{number}/free")
+    @PostMapping("/{number:[\\d]+}/free")
     public SensorDto setSensorFree(@PathVariable Integer parkingId, @PathVariable Integer number) {
         return sensorEndpointService.setSensorFree(parkingId, number);
     }
