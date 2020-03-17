@@ -23,6 +23,7 @@ docker-compose ps
 ### Step 3.
 Build application
 ```
+chmod 777 mvnw
 ./mvnw package
 ```
 
