@@ -38,7 +38,7 @@ We've done setuping application.Instruction requires linux based OS. If you use 
 ### Step 5.
 You can make api calls to application.
 
-###App use examples:
+### App use examples:
 Create parking
 ```
 curl -d '{"description":"Parking1", "capacity": 10}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/parkings
